@@ -7,6 +7,12 @@ updates:
     groups:
       cargo:
         patterns: ["*"]
+    ignore:
+      # 0.13 / 0.11 pull in a ctutils release that needs Rust 1.87 (RUSTSEC-2026-0385); MSRV is 1.85
+      - dependency-name: hmac
+        update-types: ["version-update:semver-minor"]
+      - dependency-name: sha2
+        update-types: ["version-update:semver-minor"]
 
   - package-ecosystem: github-actions
     directory: /
