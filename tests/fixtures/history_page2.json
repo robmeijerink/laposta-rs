@@ -1,0 +1,7 @@
+{
+    "pagination": {"limit": 2, "has_more": false, "next_cursor": null},
+    "order": {}, "filters": {},
+    "data": [
+        {"type": "unsubscribed", "timezone": "Europe/Amsterdam", "event_date": "2026-04-01 09:00:00", "event_date_iso": "2026-04-01T09:00:00+02:00", "campaign": null, "details": {}}
+    ]
+}

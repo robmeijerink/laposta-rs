@@ -1,0 +1,13 @@
+{
+    "segment": {
+        "segment_id": "pDrp5KOD0z",
+        "list_id": "BaImMu3JZA",
+        "name": "Contacts with postal code 1234AB",
+        "definition": "{\"postcode\"} = '1234AB'",
+        "timezone": "Europe/Amsterdam",
+        "created": "2025-10-31 17:03:21",
+        "created_iso": "2025-10-31T17:03:21+01:00",
+        "modified": "2025-10-31 17:12:08",
+        "modified_iso": "2025-10-31T17:12:08+01:00"
+    }
+}

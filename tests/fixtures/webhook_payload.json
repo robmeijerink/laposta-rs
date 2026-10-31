@@ -1,0 +1,11 @@
+{
+    "data": [
+        {
+            "type": "member",
+            "event": "deactivated",
+            "data": {"member_id": "9978ydioiZ", "list_id": "BaImMu3JZA", "email": "maartje@example.net", "state": "unsubscribed", "custom_fields": {"name": "Maartje"}},
+            "info": {"date_event": "2026-05-18 14:30:00", "action": "unsubscribed", "source": "app"}
+        }
+    ],
+    "date_requested": "2026-05-18 14:30:05"
+}

@@ -1,0 +1,27 @@
+{
+    "campaign": {
+        "account_id": "wFiUS4HL4e",
+        "campaign_id": "pbrqulw2tc",
+        "timezone": "Europe/Amsterdam",
+        "created": "2016-05-16 21:24:12",
+        "created_iso": "2016-05-16T21:24:12+02:00",
+        "modified": null,
+        "modified_iso": null,
+        "type": "regular",
+        "delivery_requested": null,
+        "delivery_requested_iso": null,
+        "delivery_started": null,
+        "delivery_started_iso": null,
+        "delivery_ended": null,
+        "delivery_ended_iso": null,
+        "name": "Test via API",
+        "subject": "Hello from us",
+        "previewtext": "Our news of this month",
+        "from": {"name": "Max de Vries", "email": "max@example.net"},
+        "reply_to": "reply@example.net",
+        "list_ids": {"kxhysrt26s": ["2noVadDLbd"], "shb5vujyxj": []},
+        "stats": {"ga": "true"},
+        "web": "https://laposta-api.email-provider.nl/web/wFiUS4HL4e/pbrqulw2tc",
+        "screenshot": {"113x134": "https://app.laposta.org/a.png", "226x268": "https://app.laposta.org/b.png"}
+    }
+}

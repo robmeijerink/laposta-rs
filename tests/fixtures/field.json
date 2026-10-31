@@ -1,0 +1,24 @@
+{
+    "field": {
+        "field_id": "gt2Em8vJwi",
+        "list_id": "BaImMu3JZA",
+        "timezone": "Europe/Amsterdam",
+        "created": "2012-02-18 11:42:38",
+        "created_iso": "2012-02-18T11:42:38+01:00",
+        "modified": null,
+        "state": "active",
+        "name": "Color",
+        "tag": "{{color}}",
+        "custom_name": "color",
+        "defaultvalue": "Green",
+        "datatype": "select_single",
+        "datatype_display": "radio",
+        "required": true,
+        "in_form": true,
+        "in_list": true,
+        "is_email": false,
+        "autocomplete": "on",
+        "options": ["Red", "Green", "Blue"],
+        "options_full": [{"id": 1, "value": "Red"}, {"id": 2, "value": "Green"}, {"id": 3, "value": "Blue"}]
+    }
+}

@@ -1,0 +1,10 @@
+{
+    "campaign": {
+        "account_id": "wFiUS4HL4e",
+        "campaign_id": "pbrqulw2tc",
+        "plaintext": "Hello",
+        "html": "<p>Hello</p>",
+        "import_url": "https://example.net/newsletter",
+        "report": {"javascript": true, "no_unsubscribe": true}
+    }
+}

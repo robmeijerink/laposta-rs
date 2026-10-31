@@ -1,0 +1,9 @@
+{
+    "report": {
+        "account_id": "wFiUS4HL4e",
+        "campaign_id": "njhgaf61ye",
+        "sent": 20882, "accepted": 20139, "cleaned": 744, "complained": 1, "hardbounced": 743,
+        "unsubscribed": 184, "opened_unique": 5711, "clicked_unique": 1348, "webversion_unique": 64,
+        "accepted_ratio": 0.96, "opened_ratio": 0.28, "clicked_ratio": 0.07
+    }
+}

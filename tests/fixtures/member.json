@@ -1,0 +1,23 @@
+{
+    "member": {
+        "member_id": "9978ydioiZ",
+        "list_id": "BaImMu3JZA",
+        "email": "maartje@example.net",
+        "state": "active",
+        "timezone": "Europe/Amsterdam",
+        "signup_date": "2012-08-13 16:13:07",
+        "signup_date_iso": "2012-08-13T16:13:07+02:00",
+        "modified": "2026-08-18 09:15:10",
+        "modified_iso": "2026-08-18T09:15:10+02:00",
+        "confirm_date": null,
+        "confirm_date_iso": null,
+        "ip": "198.51.100.10",
+        "source_url": "http://example.com",
+        "custom_fields": {
+            "name": "Maartje de Vries",
+            "children": 2,
+            "prefs": ["optionA", "optionB"],
+            "labels": ["Customer", "Newsletter"]
+        }
+    }
+}

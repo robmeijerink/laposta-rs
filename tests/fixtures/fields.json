@@ -1,0 +1,1 @@
+{"data": [{"field": {"field_id": "gt2Em8vJwi", "list_id": "BaImMu3JZA", "name": "Color", "datatype": "select_single", "options": ["Red"], "options_full": [{"id": 1, "value": "Red"}]}}, {"field": {"field_id": "lbl", "list_id": "BaImMu3JZA", "name": "Labels", "datatype": "labels"}}]}

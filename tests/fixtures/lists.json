@@ -1,0 +1,6 @@
+{
+    "data": [
+        {"list": {"list_id": "BaImMu3JZA", "name": "Testlist", "state": "active", "locked": false, "members": {"active": 12, "unsubscribed": 3, "cleaned": 1}}},
+        {"list": {"list_id": "Hu8Vr2KLpq", "name": "Second list", "state": "active", "locked": true, "members": {"active": 0, "unsubscribed": 0, "cleaned": 0}}}
+    ]
+}

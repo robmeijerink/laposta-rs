@@ -1,0 +1,7 @@
+{
+    "data": [
+        {"member": {"member_id": "m3a", "list_id": "BaImMu3JZA", "email": "a3@example.net", "state": "active", "custom_fields": {}}},
+        {"member": {"member_id": "m3b", "list_id": "BaImMu3JZA", "email": "b3@example.net", "state": "active", "custom_fields": {}}}
+    ],
+    "pagination": {"limit": 2, "has_more": false, "next_cursor": null}
+}

@@ -1,0 +1,22 @@
+{
+    "report": {"provided_count": 3, "errors_count": 1, "skipped_count": 1, "edited_count": 0, "added_count": 1, "unsubscribed_count": 0},
+    "errors": [
+        {
+            "provided_data": {"email": "member1@example.org"},
+            "error": {"message": "Field my_required_field: cannot be empty", "code": 201, "parameter": "my_required_field", "id": "lRZBQFQdBk", "type": "invalid_input"}
+        }
+    ],
+    "skipped": [
+        {
+            "provided_data": {"member_id": "9978ydioiZ", "email": "member2@example.org"},
+            "member": {"member_id": "9978ydioiZ", "list_id": "BaImMu3JZA", "email": "member2@example.org", "state": "active", "custom_fields": {}}
+        }
+    ],
+    "edited": [],
+    "added": [
+        {
+            "provided_data": {"email": "member3@example.org"},
+            "member": {"member_id": "vnvj2cfQ3a", "list_id": "BaImMu3JZA", "email": "member3@example.org", "state": "active", "modified": null, "confirm_date": null, "source_url": null, "custom_fields": {"my_required_field": "value"}}
+        }
+    ]
+}

@@ -1,0 +1,10 @@
+{
+    "pagination": {"limit": 2, "has_more": true, "next_cursor": "abc+def"},
+    "order": {"by": "event_date", "direction": "desc"},
+    "filters": {"timezone": "Europe/Amsterdam", "event_date_from": null},
+    "data": [
+        {"type": "opened", "timezone": "Europe/Amsterdam", "event_date": "2026-05-18 14:30:00", "event_date_iso": "2026-05-18T14:30:00+02:00",
+         "campaign": {"campaign_id": "pbrqulw2tc", "name": "Test via API", "from_automation": false, "deleted": false}, "details": {}},
+        {"type": "subscribed", "timezone": "Europe/Amsterdam", "event_date": "2026-05-01 09:00:00", "event_date_iso": "2026-05-01T09:00:00+02:00", "campaign": null, "details": {"source": "app"}}
+    ]
+}
