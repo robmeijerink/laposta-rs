@@ -55,6 +55,12 @@ impl Error {
     }
 }
 
+impl From<std::net::AddrParseError> for Error {
+    fn from(e: std::net::AddrParseError) -> Self {
+        Error::InvalidInput(e.to_string())
+    }
+}
+
 /// An error response from the Laposta API.
 #[derive(Debug, Clone)]
 pub struct ApiError {
@@ -291,6 +297,15 @@ mod tests {
     fn unknown_object_counts_as_not_found() {
         let body = br#"{"error":{"type":"invalid_input","message":"Unknown list","code":203}}"#;
         assert!(ApiError::from_response(400, body, None).is_not_found());
+    }
+
+    #[test]
+    fn unparsable_ip_address_converts_with_question_mark() {
+        fn parse(s: &str) -> Result<std::net::IpAddr> {
+            Ok(s.parse()?)
+        }
+        assert!(parse("198.51.100.10").is_ok());
+        assert!(matches!(parse("999.1.1.1"), Err(Error::InvalidInput(_))));
     }
 
     #[test]

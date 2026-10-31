@@ -33,7 +33,7 @@ async fn create_encodes_nested_fields_and_options() {
             &list_id(),
             &NewMember::new(
                 Email::parse("maartje@example.net").unwrap(),
-                "198.51.100.10".parse().unwrap(),
+                std::net::Ipv4Addr::new(198, 51, 100, 10),
             )
             .custom_field("name", "Maartje")
             .custom_field("prefs", vec!["a", "b"])
@@ -321,4 +321,28 @@ async fn php_style_empty_array_is_an_empty_map() {
         .await
         .unwrap();
     assert!(member.custom_fields.is_empty());
+}
+
+#[tokio::test]
+async fn ipv6_addresses_are_accepted() {
+    let (server, client) = setup().await;
+    Mock::given(method("POST"))
+        .and(path("/v2/member"))
+        .and(wiremock::matchers::body_string_contains(
+            "ip=2001%3Adb8%3A%3A1",
+        ))
+        .respond_with(respond("member"))
+        .expect(1)
+        .mount(&server)
+        .await;
+
+    let ip: std::net::IpAddr = "2001:db8::1".parse().unwrap();
+    client
+        .members()
+        .create(
+            &list_id(),
+            &NewMember::new(Email::parse("maartje@example.net").unwrap(), ip),
+        )
+        .await
+        .unwrap();
 }

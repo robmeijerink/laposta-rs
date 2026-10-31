@@ -15,6 +15,8 @@ tokio = { version = "1", features = ["macros", "rt-multi-thread"] }
 ## Usage
 
 ```rust
+use std::net::Ipv4Addr;
+
 use laposta_rs::{Client, Email, ListId, NewMember};
 
 #[tokio::main]
@@ -26,7 +28,7 @@ async fn main() -> laposta_rs::Result<()> {
         .members()
         .create(
             &list_id,
-            &NewMember::new(Email::parse("rob@example.net")?, "198.51.100.10".parse().unwrap())
+            &NewMember::new(Email::parse("rob@example.net")?, Ipv4Addr::new(198, 51, 100, 10))
                 .custom_field("name", "Rob")
                 .upsert(true),
         )
@@ -36,6 +38,8 @@ async fn main() -> laposta_rs::Result<()> {
     Ok(())
 }
 ```
+
+The IP address is the one the subscriber signed up from; the API requires it.
 
 Find your API key in Laposta under *Access & Subscription* → *Links - API*.
 

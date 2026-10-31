@@ -29,7 +29,7 @@ async fn list_field_member_round_trip() {
             .members()
             .create(
                 &list.list_id,
-                &NewMember::new(email.clone(), "198.51.100.10".parse().unwrap())
+                &NewMember::new(email.clone(), std::net::Ipv4Addr::new(198, 51, 100, 10))
                     .custom_field(field.custom_name.clone(), "Tester")
                     .ignore_doubleoptin(true),
             )

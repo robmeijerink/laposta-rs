@@ -159,11 +159,15 @@ pub struct NewMember {
 }
 
 impl NewMember {
-    /// Starts a new member. `ip` is the address the subscriber signed up from.
-    pub fn new(email: Email, ip: IpAddr) -> Self {
+    /// Starts a new member.
+    ///
+    /// `ip` is the IP address the subscriber signed up from, which the API requires.
+    /// Anything that converts into an [`IpAddr`] works, such as an `Ipv4Addr` or `Ipv6Addr`.
+    /// Use `"…".parse::<IpAddr>()?` for an address you only have as text.
+    pub fn new(email: Email, ip: impl Into<IpAddr>) -> Self {
         Self {
             email,
-            ip,
+            ip: ip.into(),
             source_url: None,
             custom_fields: Map::new(),
             user_agent: None,

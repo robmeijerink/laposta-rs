@@ -1,13 +1,15 @@
 //! Async client for the [Laposta](https://laposta.nl) email marketing API.
 //!
 //! ```no_run
+//! use std::net::Ipv4Addr;
+//!
 //! use laposta_rs::{Client, Email, ListId, NewMember};
 //!
 //! # async fn run() -> laposta_rs::Result<()> {
 //! let client = Client::new("your-api-key");
 //! let list_id = ListId::new("BaImMu3JZA");
 //!
-//! let member = NewMember::new(Email::parse("maartje@example.net")?, "198.51.100.10".parse().unwrap())
+//! let member = NewMember::new(Email::parse("maartje@example.net")?, Ipv4Addr::new(198, 51, 100, 10))
 //!     .custom_field("name", "Maartje");
 //! let member = client.members().create(&list_id, &member).await?;
 //! println!("added {}", member.member_id);
