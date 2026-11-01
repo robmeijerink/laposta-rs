@@ -9,8 +9,8 @@
 //! let client = Client::new("your-api-key");
 //! let list_id = ListId::new("BaImMu3JZA");
 //!
-//! let member = NewMember::new(Email::parse("maartje@example.net")?, Ipv4Addr::new(198, 51, 100, 10))
-//!     .custom_field("name", "Maartje");
+//! let member = NewMember::new(Email::parse("rob@example.net")?, Ipv4Addr::new(198, 51, 100, 10))
+//!     .custom_field("name", "Rob");
 //! let member = client.members().create(&list_id, &member).await?;
 //! println!("added {}", member.member_id);
 //! # Ok(())
