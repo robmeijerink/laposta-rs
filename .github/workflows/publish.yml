@@ -35,11 +35,17 @@ jobs:
             exit 1
           fi
 
-      - run: cargo test --all-features --locked
       - run: cargo package --locked
 
-  publish:
+  ci:
     needs: verify
+    permissions:
+      contents: read
+      checks: write
+    uses: ./.github/workflows/ci.yml
+
+  publish:
+    needs: [verify, ci]
     runs-on: ubuntu-latest
     permissions:
       contents: read
