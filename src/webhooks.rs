@@ -241,7 +241,7 @@ pub use notification::{
 
 #[cfg(feature = "webhook")]
 mod notification {
-    use hmac::{Hmac, Mac};
+    use hmac::{Hmac, KeyInit, Mac};
     use serde::Deserialize;
     use sha2::Sha256;
 

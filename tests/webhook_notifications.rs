@@ -8,7 +8,7 @@ use laposta_rs::webhooks::WebhookSource;
 
 #[test]
 fn incoming_notification_is_verified_and_parsed() {
-    use hmac::{Hmac, Mac};
+    use hmac::{Hmac, KeyInit, Mac};
     use sha2::Sha256;
 
     let body = fixture("webhook_payload");
@@ -37,7 +37,7 @@ fn incoming_notification_is_verified_and_parsed() {
 
 #[test]
 fn empty_secret_never_verifies() {
-    use hmac::{Hmac, Mac};
+    use hmac::{Hmac, KeyInit, Mac};
     use sha2::Sha256;
 
     let mut mac = Hmac::<Sha256>::new_from_slice(b"").unwrap();
