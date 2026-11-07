@@ -338,10 +338,9 @@ pub(crate) fn with_field(mut value: Value, name: &str, field: &str) -> Value {
 }
 
 pub(crate) fn decode_root<T: DeserializeOwned>(value: Value) -> Result<T> {
-    let body = value.clone();
-    serde_json::from_value(value).map_err(|source| Error::Decode {
+    T::deserialize(&value).map_err(|source| Error::Decode {
         source,
-        body: truncate(&body.to_string()),
+        body: truncate(&value.to_string()),
     })
 }
 

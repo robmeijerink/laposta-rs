@@ -4,11 +4,11 @@ Async Rust client for the [Laposta](https://laposta.nl) email marketing API (v2)
 
 > This is an unofficial, community-maintained library. It is not affiliated with, endorsed by or supported by Laposta.
 
-It covers lists, fields, segments, members, campaigns, reports and webhooks, including bulk member sync and cursor based history.
+It covers lists, fields, segments, members, campaigns, reports and webhooks, including bulk member sync and cursor based history. See the [Laposta API documentation](https://api.laposta.nl/doc/index.en.php) for the underlying endpoints.
 
 ```toml
 [dependencies]
-laposta-rs = "0.1"
+laposta-rs = "0.2"
 tokio = { version = "1", features = ["macros", "rt-multi-thread"] }
 ```
 
