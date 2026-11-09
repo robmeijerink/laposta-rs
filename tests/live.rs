@@ -5,9 +5,19 @@ use laposta_rs::{
     Client, Email, NewField, NewFieldKind, NewList, NewMember, UpdateMember, WritableMemberState,
 };
 
+/// Loads a `.env` file from the working directory, once, before the first variable is read.
+/// Variables that are already set win over the file.
+fn load_env() {
+    static LOAD: std::sync::Once = std::sync::Once::new();
+    LOAD.call_once(|| {
+        dotenvy::dotenv().ok();
+    });
+}
+
 #[tokio::test]
 #[ignore = "talks to the real Laposta API"]
 async fn list_field_member_round_trip() {
+    load_env();
     let key = std::env::var("LAPOSTA_API_KEY").expect("LAPOSTA_API_KEY must be set");
     let client = Client::new(key);
 
