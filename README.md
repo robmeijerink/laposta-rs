@@ -8,7 +8,7 @@ It covers lists, fields, segments, members, campaigns, reports and webhooks, inc
 
 ```toml
 [dependencies]
-laposta-rs = "0.2"
+laposta-rs = "1.0"
 tokio = { version = "1", features = ["macros", "rt-multi-thread"] }
 ```
 
@@ -106,6 +106,16 @@ if verify_signature(body, signature_header, webhook.secret.as_ref().unwrap().exp
 ```
 
 A signature does not protect against replays; compare `payload.date_requested` with the current time if that matters.
+
+## Stability
+
+This crate follows semantic versioning, with these exceptions:
+
+- `ClientBuilder::http_client` accepts a `reqwest::Client`. Moving to a new reqwest major version is released as a minor version of this crate.
+- Raising the minimum supported Rust version is also released as a minor version.
+- Enums and structs marked `#[non_exhaustive]` may gain variants and fields in minor versions.
+
+Transport errors are wrapped in `HttpError`, so reqwest's error type is not part of the public API.
 
 ## Features
 
