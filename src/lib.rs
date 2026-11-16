@@ -48,7 +48,7 @@ pub mod types;
 pub mod webhooks;
 
 pub use client::{Client, ClientBuilder};
-pub use error::{ApiError, Error, ErrorCode, ErrorType, Result};
+pub use error::{ApiError, Error, ErrorCode, ErrorType, HttpError, Result};
 pub use pagination::{Page, Pagination};
 pub use types::{
     AccountId, CampaignId, Cursor, Email, FieldId, Limit, ListId, MemberId, MemberRef, SegmentId,

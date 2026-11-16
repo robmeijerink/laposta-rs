@@ -229,6 +229,10 @@ impl ClientBuilder {
 
     /// Uses an existing [`reqwest::Client`], for custom proxies or TLS settings.
     ///
+    /// This crate depends on reqwest 0.12, so the client must come from that
+    /// version. A new reqwest major version is released as a new minor version
+    /// of this crate (see the stability policy in the README).
+    ///
     /// The client is used as is. In particular, redirects are followed unless
     /// you disable them, which the default client does.
     pub fn http_client(mut self, client: reqwest::Client) -> Self {

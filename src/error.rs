@@ -15,7 +15,7 @@ pub enum Error {
     Api(#[from] ApiError),
     /// The request could not be sent or the response could not be read.
     #[error("http error: {0}")]
-    Http(#[from] reqwest::Error),
+    Http(#[from] HttpError),
     /// The response body did not have the expected shape.
     #[error("failed to decode response: {source}")]
     Decode {
@@ -55,9 +55,48 @@ impl Error {
     }
 }
 
+impl From<reqwest::Error> for Error {
+    fn from(e: reqwest::Error) -> Self {
+        Error::Http(HttpError(e))
+    }
+}
+
 impl From<std::net::AddrParseError> for Error {
     fn from(e: std::net::AddrParseError) -> Self {
         Error::InvalidInput(e.to_string())
+    }
+}
+
+/// A transport level failure: the request could not be sent or the response
+/// could not be read.
+///
+/// This wraps the underlying HTTP library's error so that its version does not
+/// become part of this crate's public API. The original error is available
+/// through [`std::error::Error::source`].
+#[derive(Debug)]
+pub struct HttpError(reqwest::Error);
+
+impl HttpError {
+    /// Whether the request timed out.
+    pub fn is_timeout(&self) -> bool {
+        self.0.is_timeout()
+    }
+
+    /// Whether the connection could not be established.
+    pub fn is_connect(&self) -> bool {
+        self.0.is_connect()
+    }
+}
+
+impl fmt::Display for HttpError {
+    fn fmt(&self, f: &mut fmt::Formatter<'_>) -> fmt::Result {
+        fmt::Display::fmt(&self.0, f)
+    }
+}
+
+impl std::error::Error for HttpError {
+    fn source(&self) -> Option<&(dyn std::error::Error + 'static)> {
+        Some(&self.0)
     }
 }
 
