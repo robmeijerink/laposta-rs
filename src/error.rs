@@ -102,6 +102,7 @@ impl std::error::Error for HttpError {
 
 /// An error response from the Laposta API.
 #[derive(Debug, Clone)]
+#[non_exhaustive]
 pub struct ApiError {
     /// HTTP status code.
     pub status: u16,
