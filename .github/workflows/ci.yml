@@ -29,6 +29,7 @@ jobs:
       - run: cargo clippy --all-targets --all-features --locked -- -D warnings
       - run: cargo test --all-features --locked
       - run: cargo test --no-default-features --features native-tls --locked
+      - run: cargo test --no-default-features --features rustls-tls --locked
       - run: cargo doc --no-deps --all-features --locked
 
   msrv:
