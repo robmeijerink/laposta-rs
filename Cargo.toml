@@ -1,6 +1,6 @@
 [package]
 name = "laposta-rs"
-version = "1.0.0"
+version = "1.0.1"
 edition = "2024"
 rust-version = "1.88"
 description = "Unofficial async client for the Laposta email marketing API"
@@ -34,6 +34,10 @@ dotenvy = "0.15.7"
 futures = "0.3"
 tokio = { version = "1", features = ["macros", "rt-multi-thread"] }
 wiremock = "0.6"
+
+[[example]]
+name = "webhook_receiver"
+required-features = ["webhook"]
 
 [package.metadata.docs.rs]
 all-features = true

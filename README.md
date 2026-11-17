@@ -107,6 +107,29 @@ if verify_signature(body, signature_header, webhook.secret.as_ref().unwrap().exp
 
 A signature does not protect against replays; compare `payload.date_requested` with the current time if that matters.
 
+## Examples
+
+The `examples` directory has a runnable example per part of the API:
+
+| Example | Shows |
+|---|---|
+| `quickstart` | Fetch a list and stream its active members |
+| `client_config` | Retries and timeouts |
+| `lists`, `fields`, `segments` | Managing lists, fields and segments |
+| `members`, `bulk_sync` | Adding, updating and bulk syncing members |
+| `pagination` | Paging by hand and with streams |
+| `campaigns`, `reports` | Creating, testing and reporting on campaigns |
+| `webhooks`, `webhook_receiver` | Registering webhooks and verifying incoming requests |
+| `errors` | Handling the different kinds of errors |
+
+Run one with your credentials, for example:
+
+```sh
+LAPOSTA_API_KEY=... LAPOSTA_LIST_ID=... cargo run --example members
+```
+
+The examples that create something remove it again, but they do talk to the real API, so try them on a throwaway list first.
+
 ## Stability
 
 This crate follows semantic versioning, with these exceptions:

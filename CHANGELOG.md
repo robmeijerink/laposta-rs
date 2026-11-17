@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.0.1
+
+- Added runnable examples for each part of the API in the `examples` directory.
+
 ## 1.0.0
 
 First stable release. The API follows semantic versioning; see the stability policy in the README.
