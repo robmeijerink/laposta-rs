@@ -122,13 +122,23 @@ The `examples` directory has a runnable example per part of the API:
 | `webhooks`, `webhook_receiver` | Registering webhooks and verifying incoming requests |
 | `errors` | Handling the different kinds of errors |
 
+They are configured through environment variables:
+
+| Variable | Needed by | |
+|---|---|---|
+| `LAPOSTA_API_KEY` | all examples except `webhook_receiver` | Your API key |
+| `LAPOSTA_LIST_ID` | all examples except `client_config`, `errors`, `lists`, `reports` and `webhook_receiver` | The id of an existing list to work in |
+| `LAPOSTA_SENDER_EMAIL` | `campaigns` | An approved sender address; the example sends a test mail to it |
+
 Run one with your credentials, for example:
 
 ```sh
 LAPOSTA_API_KEY=... LAPOSTA_LIST_ID=... cargo run --example members
 ```
 
-The examples that create something remove it again, but they do talk to the real API, so try them on a throwaway list first.
+The examples do not read a `.env` file. To use one, export it first: `set -a; . ./.env; set +a`.
+
+The examples that create something remove it again, but they do talk to the real API, so try them on a throwaway list first. `bulk_sync` additionally needs bulk requests to be enabled for your account.
 
 ## Stability
 
