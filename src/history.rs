@@ -72,13 +72,34 @@ impl HistoryQuery {
     }
 }
 
+/// The API wraps each item as `{"event": {...}}`, like it does for other
+/// resources. Items without the wrapper are accepted as well.
+fn events<'de, D>(deserializer: D) -> std::result::Result<Vec<Event>, D::Error>
+where
+    D: serde::Deserializer<'de>,
+{
+    #[derive(Deserialize)]
+    #[serde(untagged)]
+    enum Item {
+        Wrapped { event: Event },
+        Plain(Event),
+    }
+
+    Ok(Vec::<Item>::deserialize(deserializer)?
+        .into_iter()
+        .map(|item| match item {
+            Item::Wrapped { event } | Item::Plain(event) => event,
+        })
+        .collect())
+}
+
 /// One page of a member or campaign history.
 #[derive(Debug, Clone, Default, Deserialize)]
 #[serde(default)]
 #[non_exhaustive]
 pub struct History {
     /// The events on this page.
-    #[serde(rename = "data")]
+    #[serde(rename = "data", deserialize_with = "events")]
     pub events: Vec<Event>,
     /// Cursor information.
     pub pagination: Pagination,
