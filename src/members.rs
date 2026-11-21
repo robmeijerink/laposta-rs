@@ -328,7 +328,8 @@ impl MemberQuery {
         self
     }
 
-    /// Sort direction. The API defaults to ascending.
+    /// Sort direction. The API defaults to ascending. It rejects a direction
+    /// without a sort key, so combine this with [`order_by`](Self::order_by).
     pub fn order(mut self, order: SortOrder) -> Self {
         self.order = Some(order);
         self

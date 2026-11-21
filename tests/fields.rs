@@ -75,7 +75,9 @@ async fn get_all_and_delete_pass_list_id_in_query() {
     let fields = client.fields();
     fields.get(&list_id, &field_id).await.unwrap();
     let all = fields.all(&list_id).await.unwrap();
-    assert_eq!(all[1].datatype, DataType::Labels);
+    // The email field reports `custom_name: null`.
+    assert_eq!(all[1].custom_name, "");
+    assert_eq!(all[2].datatype, DataType::Labels);
     fields.delete(&list_id, &field_id).await.unwrap();
 }
 

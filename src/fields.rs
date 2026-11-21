@@ -102,6 +102,13 @@ impl FieldOption {
     }
 }
 
+fn null_as_empty<'de, D>(deserializer: D) -> std::result::Result<String, D::Error>
+where
+    D: serde::Deserializer<'de>,
+{
+    Ok(Option::<String>::deserialize(deserializer)?.unwrap_or_default())
+}
+
 /// A field of a list.
 #[derive(Debug, Clone, Default, Deserialize)]
 #[serde(default)]
@@ -125,7 +132,9 @@ pub struct Field {
     pub name: String,
     /// Variable to use in campaigns, for example `{{color}}`.
     pub tag: String,
-    /// Name to use in `custom_fields` of member requests.
+    /// Name to use in `custom_fields` of member requests. Empty for the
+    /// email field, which the API reports as `null`.
+    #[serde(deserialize_with = "null_as_empty")]
     pub custom_name: String,
     /// Value used when none is supplied.
     pub defaultvalue: Option<String>,

@@ -3,6 +3,7 @@
 //! `LAPOSTA_API_KEY=... LAPOSTA_LIST_ID=... cargo run --example pagination`
 
 use futures::TryStreamExt;
+use laposta_rs::members::MemberOrder;
 use laposta_rs::{
     Client, Cursor, HistoryQuery, Limit, ListId, MemberFilterState, MemberQuery, SortOrder,
 };
@@ -33,6 +34,7 @@ async fn main() -> laposta_rs::Result<()> {
     let mut members = client.members().stream(
         &list_id,
         MemberQuery::new()
+            .order_by(MemberOrder::Email)
             .order(SortOrder::Desc)
             .search("example.net"),
     );
