@@ -1,5 +1,12 @@
 # Changelog
 
+## 1.0.2
+
+- Fixed decoding of member and campaign history: the API wraps each event as `{"event": {...}}`, which resulted in empty events. Both the wrapped and the bare form are accepted now.
+- Fixed `fields().all()` and `get()` failing on the email field of a list, for which the API returns `custom_name: null`. `Field::custom_name` is an empty string in that case.
+- Documented that the members list only accepts `order` together with `order_by`, and fixed the `pagination` example accordingly.
+- Documented the environment variables used by the examples.
+
 ## 1.0.1
 
 - Added runnable examples for each part of the API in the `examples` directory.
